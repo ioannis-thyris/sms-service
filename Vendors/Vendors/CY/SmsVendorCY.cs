@@ -14,7 +14,8 @@ namespace SmsVendors.Vendors.CY
 {
     public class SmsVendorCY : SmsVendorBase, ISmsVendorCY
     {
-        public SmsVendorCY(ISmsRepository repo, IValidator<SmsDto> validator) : base(repo, validator)
+        public SmsVendorCY(ISmsRepository repo, ISmsValidatorCY validator) 
+            : base(repo, validator)
         {
         }
     }

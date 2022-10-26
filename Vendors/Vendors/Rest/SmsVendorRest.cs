@@ -14,7 +14,8 @@ namespace SmsVendors.Vendors.Rest
 {
     public class SmsVendorRest : SmsVendorBase, ISmsVendorRest
     {
-        public SmsVendorRest(ISmsRepository repo, IValidator<SmsDto> validator) : base(repo, validator)
+        public SmsVendorRest(ISmsRepository repo, ISmsValidatorRest validator) 
+            : base(repo, validator)
         {
         }
     }

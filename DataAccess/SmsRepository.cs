@@ -14,7 +14,7 @@ namespace DataAccessLayer
 
         public SmsRepository(Context db)
         {
-            db = _db;
+            _db = db;
         }
 
         public async Task<Sms> Create(Sms sms)

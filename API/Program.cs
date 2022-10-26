@@ -12,6 +12,7 @@ using SmsVendors.Vendors.CY;
 using SmsVendors.Factory;
 using SmsVendors.Vendors.GR;
 using SmsVendors.Vendors.Rest;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +29,11 @@ builder.Services.AddScoped<ValidationFilter>();
 builder.Services.AddScoped<VendorFilter>();
 
 //Add database
+var catalogName = builder.Configuration.GetConnectionString("SmsService");
+
+
 builder.Services.AddDbContext<Context>(options =>
-    options.UseSqlServer("")
+    options.UseSqlServer(catalogName)
 );
 
 builder.Services.AddAutoMapper(typeof(SmsProfile));
@@ -51,7 +55,11 @@ builder.Services.AddSingleton<ISmsVendorSelector, VendorSelector>();
 builder.Services.AddScoped<ValidationFilter>();
 
 //Add validation services
-builder.Services.AddValidatorsFromAssemblyContaining<SmsValidatorCY>();
+//builder.Services.AddValidatorsFromAssemblyContaining<SmsValidatorCY>();
+
+builder.Services.AddScoped<ISmsValidatorGR, SmsValidatorGR>();
+builder.Services.AddScoped<ISmsValidatorCY, SmsValidatorCY>();
+builder.Services.AddScoped<ISmsValidatorRest, SmsValidatorRest>();
 
 //Add cors
 

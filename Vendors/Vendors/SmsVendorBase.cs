@@ -26,6 +26,6 @@ namespace SmsVendors.Vendors
 
         public Task Send(Sms sms) => _repo.Create(sms);
 
-        public ValidationResult Validate(SmsDto smsDto) => _validator.Validate(smsDto);
+        public  ValidationResult Validate(SmsDto smsDto) => _validator.Validate(smsDto);
     }
 }

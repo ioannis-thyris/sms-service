@@ -6,7 +6,7 @@ namespace API.Middleware
     {
         public string Select(HttpContext context)
         {
-            return "GR";
+            return "CY";
         }
     }
 }
