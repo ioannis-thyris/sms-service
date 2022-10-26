@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.CY
+namespace SmsVendors.Vendors.CY
 {
     public class SmsValidatorCY : SmsValidatorBase
     {

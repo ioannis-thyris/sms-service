@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Mapping
 {
-    public class SmsMapping : Profile
+    public class SmsProfile : Profile
     {
-        public SmsMapping()
+        public SmsProfile()
         {
             CreateMap<Sms, SmsDto>()
                 .ReverseMap();

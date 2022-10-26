@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.Rest
+namespace SmsVendors.Vendors.Rest
 {
     public class SmsVendorRest : ISmsVendorRest
     {

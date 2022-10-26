@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmsVendors.Core
 {
-    internal interface ISmsVendorGR : ISmsVendor
+    public interface ISmsVendorGR : ISmsVendor
     {
     }
 }

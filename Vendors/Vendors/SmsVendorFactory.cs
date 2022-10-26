@@ -1,6 +1,4 @@
 ﻿using SmsVendors.Core;
-using SmsVendors.CY;
-using SmsVendors.GR;
 using System;
 using System.Collections.Generic;
 using System.Linq;

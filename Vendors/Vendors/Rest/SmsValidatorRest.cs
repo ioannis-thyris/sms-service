@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SmsVendors.Core;
 
-namespace SmsVendors.Rest
+namespace SmsVendors.Vendors.Rest
 {
     public class SmsValidatorRest : SmsValidatorBase
     {

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.GR
+namespace SmsVendors.Vendors.GR
 {
     public class SmsVendorGR : ISmsVendorGR
     {
