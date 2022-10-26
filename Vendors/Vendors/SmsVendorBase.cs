@@ -3,7 +3,7 @@ using Domain.DataTransferObjects;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
-using SmsVendors.Core;
+using SmsVendors.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +12,12 @@ using System.Threading.Tasks;
 
 namespace SmsVendors.Vendors
 {
-    public class SmsVendorBase : ISmsVendor
+    public abstract class SmsVendorBase : ISmsVendor
     {
         private readonly ISmsRepository _repo;
         private readonly IValidator<SmsDto> _validator;
+
+        protected virtual int MaxChars { get; set; } = 480;
 
         public SmsVendorBase(ISmsRepository repo, IValidator<SmsDto> validator)
         {
@@ -24,8 +26,31 @@ namespace SmsVendors.Vendors
         }
 
 
-        public Task Send(Sms sms) => _repo.Create(sms);
+        public async Task<(bool Successful, int MessagesSent)> Send(Sms sms)
+        {
+            int smsNumberToSend = (int)Math.Ceiling((double)sms.Text.Length / MaxChars);
+            string splitText;
+            Sms subSms;
+            bool isSuccessful = false;
+            int messagesSent = 0;
 
-        public  ValidationResult Validate(SmsDto smsDto) => _validator.Validate(smsDto);
+            while (smsNumberToSend > 0)
+            {
+                splitText = string.Concat(sms.Text.Skip(messagesSent * MaxChars).Take(MaxChars));
+
+                subSms = new Sms(sms, splitText);
+
+                isSuccessful = await _repo.Create(subSms);
+
+                messagesSent++;
+                smsNumberToSend--;
+            }
+
+            return (isSuccessful, messagesSent);
+        }
+
+        public ValidationResult Validate(SmsDto smsDto) => _validator.Validate(smsDto);
+
+
     }
 }

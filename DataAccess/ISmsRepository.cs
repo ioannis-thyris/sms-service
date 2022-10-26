@@ -9,6 +9,6 @@ namespace DataAccessLayer
 {
     public interface ISmsRepository
     {
-        public Task<Sms> Create(Sms sms);
+        public Task<bool> Create(Sms sms);
     }
 }

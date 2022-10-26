@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.Core
+namespace SmsVendors.Contracts
 {
     public interface ISmsVendorGR : ISmsVendor
     {

@@ -4,7 +4,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using SmsVendors.Core;
+using SmsVendors.Contracts;
 using System.Numerics;
 
 namespace API.Filters

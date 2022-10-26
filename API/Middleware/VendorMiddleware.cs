@@ -1,4 +1,4 @@
-﻿using SmsVendors.Core;
+﻿using SmsVendors.Contracts;
 using SmsVendors.Factory;
 
 namespace API.Middleware

@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.Core
+namespace SmsVendors.Contracts
 {
     public interface ISmsVendor
     {
-        public Task Send(Sms sms);
+        public Task<(bool Successful, int MessagesSent)> Send(Sms sms);
 
         public ValidationResult Validate(SmsDto smsDto);
     }

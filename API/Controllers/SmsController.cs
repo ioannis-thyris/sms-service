@@ -6,7 +6,7 @@ using Domain.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
-using SmsVendors.Core;
+using SmsVendors.Contracts;
 using System;
 using System.Numerics;
 
@@ -31,12 +31,9 @@ namespace API.Controllers
         {
             var sms = _mapper.Map<Sms>(dto);
 
-            var sentSuccess = true;
-            await Vendor.Send(sms);
+            var asd = await Vendor.Send(sms);
 
-            //var sentSuccess = await Vendor.Send(sms);
-
-            return sentSuccess ? Ok() : BadRequest();
+            return asd.Successful ? Ok("The message was sent successfully") : BadRequest();
         }
     }
 }

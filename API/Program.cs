@@ -6,7 +6,7 @@ using Domain.DataTransferObjects;
 using Domain.Mapping;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using SmsVendors.Core;
+using SmsVendors.Contracts;
 using SmsVendors.Vendors;
 using SmsVendors.Vendors.CY;
 using SmsVendors.Factory;

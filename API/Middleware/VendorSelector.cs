@@ -1,4 +1,4 @@
-﻿using SmsVendors.Core;
+﻿using SmsVendors.Contracts;
 
 namespace API.Middleware
 {
@@ -6,7 +6,7 @@ namespace API.Middleware
     {
         public string Select(HttpContext context)
         {
-            return "CY";
+            return "GR";
         }
     }
 }

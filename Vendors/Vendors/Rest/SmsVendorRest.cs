@@ -3,7 +3,7 @@ using Domain.DataTransferObjects;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
-using SmsVendors.Core;
+using SmsVendors.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -17,17 +17,15 @@ namespace DataAccessLayer
             _db = db;
         }
 
-        public async Task<Sms> Create(Sms sms)
+        public async Task<bool> Create(Sms sms)
         {
             await _db.Sms.AddAsync(sms);
 
-            var test = _db.Entry(sms).State;
+            var state = _db.Entry(sms).State;
 
             await _db.SaveChangesAsync();
 
-            var test2 = _db.Entry(sms).State;
-
-            return sms;
+            return state == Microsoft.EntityFrameworkCore.EntityState.Added;
         }
     }
 }
