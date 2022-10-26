@@ -1,5 +1,6 @@
 ﻿using Domain.DataTransferObjects;
 using Domain.Models;
+using FluentValidation;
 using FluentValidation.Results;
 using SmsVendors.Core;
 using System;
@@ -8,17 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.GR
+namespace SmsVendors.Rest
 {
-    public class SmsVendorGR : ISmsVendor
+    public class SmsVendorRest : ISmsVendorRest
     {
-        private readonly ISmsValidator _validator;
+        private readonly IValidator<SmsDto> _validator;
 
-        public SmsVendorGR(ISmsValidator validator)
+        public SmsVendorRest(IValidator<SmsDto> validator)
         {
             _validator = validator;
         }
-
 
         public Task<bool> Send(Sms sms)
         {

@@ -4,9 +4,9 @@ namespace API.Middleware
 {
     public class VendorSelector : ISmsVendorSelector
     {
-        public ISmsVendor Select(HttpContext context)
+        public string Select(HttpContext context)
         {
-            throw new NotImplementedException();
+            return "GR";
         }
     }
 }
