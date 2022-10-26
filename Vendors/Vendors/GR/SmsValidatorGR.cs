@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using SmsVendors.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;

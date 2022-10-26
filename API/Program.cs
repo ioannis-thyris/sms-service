@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using SmsVendors.Core;
 using SmsVendors.Vendors;
 using SmsVendors.Vendors.CY;
+using SmsVendors.Factory;
 using SmsVendors.Vendors.GR;
 using SmsVendors.Vendors.Rest;
 
@@ -24,6 +25,7 @@ builder.Services.AddSwaggerGen();
 
 // Add filters
 builder.Services.AddScoped<ValidationFilter>();
+builder.Services.AddScoped<VendorFilter>();
 
 //Add database
 builder.Services.AddDbContext<Context>(options =>
@@ -46,8 +48,7 @@ builder.Services.AddScoped<ISmsVendorFactory>(provider => new SmsVendorFactory(p
 // Add selector
 builder.Services.AddSingleton<ISmsVendorSelector, VendorSelector>();
 
-
-
+builder.Services.AddScoped<ValidationFilter>();
 
 //Add validation services
 builder.Services.AddValidatorsFromAssemblyContaining<SmsValidatorCY>();

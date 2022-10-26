@@ -20,7 +20,12 @@ namespace DataAccessLayer
         public async Task<Sms> Create(Sms sms)
         {
             await _db.Sms.AddAsync(sms);
+
+            var test = _db.Entry(sms).State;
+
             await _db.SaveChangesAsync();
+
+            var test2 = _db.Entry(sms).State;
 
             return sms;
         }

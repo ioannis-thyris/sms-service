@@ -1,17 +1,24 @@
 ﻿using API.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
+using SmsVendors.Core;
+using System.Numerics;
 
 namespace API.Filters
 {
     public class VendorFilter : IActionFilter
     {
-        public void OnActionExecuted(ActionExecutedContext context)
+        public void OnActionExecuting(ActionExecutingContext context)
         {
-            var controller = (SmsController)context.Controller;
+            context.HttpContext.Items.TryGetValue("Vendor", out object vendor);
 
-            //controller._vendor = 
+            if (vendor == null)
+                throw new Exception("Error with assigning a SMS vendor.");
+
+            var controller = (SmsController)context.Controller;
+            
+            controller.Vendor = (ISmsVendor)vendor;
         }
 
-        public void OnActionExecuting(ActionExecutingContext context) {}
+        public void OnActionExecuted(ActionExecutedContext context) { }
     }
 }

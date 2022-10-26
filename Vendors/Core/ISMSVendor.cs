@@ -11,7 +11,7 @@ namespace SmsVendors.Core
 {
     public interface ISmsVendor
     {
-        public Task<bool> Send(Sms sms);
+        public Task Send(Sms sms);
 
         public ValidationResult Validate(SmsDto smsDto);
     }

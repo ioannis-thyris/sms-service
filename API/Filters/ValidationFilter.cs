@@ -2,7 +2,10 @@
 using Domain.DataTransferObjects;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using SmsVendors.Core;
+using System.Numerics;
 
 namespace API.Filters
 {
@@ -14,9 +17,12 @@ namespace API.Filters
 
             var dto = (SmsDto)context.ActionArguments.FirstOrDefault().Value; // Get the Dto passed
 
-            var validationResult = controller.Vendor.Validate(dto);
+            var validationResults = controller.Vendor.Validate(dto);
 
-            validationResult.AddToModelState(context.ModelState);
+            validationResults.AddToModelState(context.ModelState);
+
+            if (!context.ModelState.IsValid)
+                context.Result = controller.ValidationProblem(context.ModelState);
         }
 
         public void OnActionExecuted(ActionExecutedContext context) { }

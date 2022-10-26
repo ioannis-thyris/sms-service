@@ -1,4 +1,5 @@
-﻿using Domain.DataTransferObjects;
+﻿using DataAccessLayer;
+using Domain.DataTransferObjects;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
@@ -11,21 +12,23 @@ using System.Threading.Tasks;
 
 namespace SmsVendors.Vendors.GR
 {
-    public class SmsVendorGR : ISmsVendorGR
+    public class SmsVendorGR : SmsVendorBase, ISmsVendorGR
     {
-        private readonly IValidator<SmsDto> _validator;
-
-        public SmsVendorGR(IValidator<SmsDto> validator)
+        public SmsVendorGR(ISmsRepository repo, IValidator<SmsDto> validator) : base(repo, validator)
         {
-            _validator = validator;
         }
 
+        //Task<bool> ISmsVendor.Send(Sms sms)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public Task<bool> Send(Sms sms)
-        {
-            throw new NotImplementedException();
-        }
 
-        public ValidationResult Validate(SmsDto smsDto) => _validator.Validate(smsDto);
+        //public Task<bool> Send(Sms sms)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public ValidationResult Validate(SmsDto smsDto) => _validator.Validate(smsDto);
     }
 }

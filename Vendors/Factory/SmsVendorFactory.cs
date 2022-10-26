@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmsVendors.Vendors
+namespace SmsVendors.Factory
 {
     public class SmsVendorFactory : ISmsVendorFactory
     {

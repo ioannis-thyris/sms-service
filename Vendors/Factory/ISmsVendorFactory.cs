@@ -1,6 +1,6 @@
 ﻿using SmsVendors.Core;
 
-namespace SmsVendors.Vendors
+namespace SmsVendors.Factory
 {
     public interface ISmsVendorFactory
     {
