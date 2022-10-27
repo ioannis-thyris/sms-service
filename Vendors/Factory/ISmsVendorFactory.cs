@@ -4,6 +4,6 @@ namespace SmsVendors.Factory
 {
     public interface ISmsVendorFactory
     {
-        ISmsVendor Create(string countryCode);
+        ISmsVendor Create(Country country);
     }
 }

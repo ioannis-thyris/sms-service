@@ -18,5 +18,6 @@ namespace SmsVendors.Vendors.GR
             : base(repo, validator)
         {
         }
+
     }
 }

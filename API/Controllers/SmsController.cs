@@ -31,9 +31,9 @@ namespace API.Controllers
         {
             var sms = _mapper.Map<Sms>(dto);
 
-            var asd = await Vendor.Send(sms);
+            var vendorResponse = await Vendor.Send(sms);
 
-            return asd.Successful ? Ok("The message was sent successfully") : BadRequest();
+            return vendorResponse.Successful ? Ok("The message was sent successfully.") : BadRequest();
         }
     }
 }

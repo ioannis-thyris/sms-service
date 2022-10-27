@@ -9,7 +9,7 @@ namespace SmsVendors.Factory
 {
     public class SmsVendorFactory : ISmsVendorFactory
     {
-        private readonly Dictionary<string, ISmsVendor> _vendorList;
+        private readonly Dictionary<Country, ISmsVendor> _vendorList;
         private readonly IServiceProvider _serviceProvider;
         private readonly ISmsVendorRest smsVendorRest;
 
@@ -19,16 +19,16 @@ namespace SmsVendors.Factory
 
             smsVendorRest = GetVendor<ISmsVendorRest>();
 
-            _vendorList = new Dictionary<string, ISmsVendor>();
+            _vendorList = new Dictionary<Country, ISmsVendor>();
 
-            AddVendor<ISmsVendorGR>("GR");
-            AddVendor<ISmsVendorCY>("CY");
+            AddVendor<ISmsVendorGR>(Country.GR);
+            AddVendor<ISmsVendorCY>(Country.CY);
         }
 
 
-        public ISmsVendor Create(string countryCode)
+        public ISmsVendor Create(Country country)
         {
-            return _vendorList.ContainsKey(countryCode) ? _vendorList[countryCode] : smsVendorRest;
+            return _vendorList.ContainsKey(country) ? _vendorList[country] : smsVendorRest;
         }
 
 
@@ -38,9 +38,9 @@ namespace SmsVendors.Factory
         }
 
 
-        private void AddVendor<T>(string countryCode) where T : ISmsVendor
+        private void AddVendor<T>(Country country) where T : ISmsVendor
         {
-            _vendorList.Add(countryCode, GetVendor<T>());
+            _vendorList.Add(country, GetVendor<T>());
         }
 
 

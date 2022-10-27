@@ -17,6 +17,7 @@ namespace SmsVendors.Vendors.Rest
 
             RuleFor(m => m.Number).NotEmpty()
                                   .Matches(@"^\+[1-9]\d{1,14}$")
+                                  .MinimumLength(7)
                 .WithMessage("Wrong Telephone number format, please use '+(country code)(Subscriber number)'. Check: https://en.wikipedia.org/wiki/E.164");
         }
     }
