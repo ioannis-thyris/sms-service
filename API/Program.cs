@@ -1,17 +1,10 @@
 using API.Filters;
 using API.Middleware;
+using API.ServiceConfiguration;
 using DataAccessLayer;
 using Database.AppContext;
-using Domain.DataTransferObjects;
 using Domain.Mapping;
-using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using SmsVendors.Contracts;
-using SmsVendors.Vendors;
-using SmsVendors.Vendors.CY;
-using SmsVendors.Factory;
-using SmsVendors.Vendors.GR;
-using SmsVendors.Vendors.Rest;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,52 +18,34 @@ builder.Services.AddSwaggerGen();
 
 
 // Add filters
-builder.Services.AddScoped<ValidationFilter>();
-builder.Services.AddScoped<VendorFilter>();
+
+builder.Services.ConfigureFilters();
 
 //Add database
-var catalogName = builder.Configuration.GetConnectionString("SmsService");
+var connectionString = builder.Configuration.GetConnectionString("SmsService");
 
+builder.Services.ConfigureDatabase(connectionString);
 
-builder.Services.AddDbContext<Context>(options =>
-    options.UseSqlServer(catalogName)
-);
 
 builder.Services.AddAutoMapper(typeof(SmsProfile));
 
 //Add repositories
-builder.Services.AddScoped<ISmsRepository, SmsRepository>();
+builder.Services.ConfigureDataAccessLayer();
 
-// Add vendors
-builder.Services.AddScoped<ISmsVendorGR, SmsVendorGR>();
-builder.Services.AddScoped<ISmsVendorCY, SmsVendorCY>();
-builder.Services.AddScoped<ISmsVendorRest, SmsVendorRest>();
-
-// Add factory
-builder.Services.AddScoped<ISmsVendorFactory>(provider => new SmsVendorFactory(provider));
-
-// Add selector
-builder.Services.AddSingleton<ISmsVendorSelector, VendorSelector>();
-
-builder.Services.AddScoped<ValidationFilter>();
+// Vendors
+builder.Services.ConfigureVendors();
 
 //Add validation services
-//builder.Services.AddValidatorsFromAssemblyContaining<SmsValidatorCY>();
-
-builder.Services.AddScoped<ISmsValidatorGR, SmsValidatorGR>();
-builder.Services.AddScoped<ISmsValidatorCY, SmsValidatorCY>();
-builder.Services.AddScoped<ISmsValidatorRest, SmsValidatorRest>();
+builder.Services.ConfigureValidations();
 
 //Add cors
+builder.Services.ConfigureCors();
 
-builder.Services.AddCors(c =>
-{
-    c.AddPolicy("allowAll", options => options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
-});
 
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
 
 
 // Configure the HTTP request pipeline.
