@@ -1,7 +1,7 @@
 ﻿using API.Filters;
 using AutoMapper;
 using Database.AppContext;
-using Domain.DataTransferObjects;
+using DataTransferObjects;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;

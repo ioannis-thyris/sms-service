@@ -1,4 +1,4 @@
-﻿using Domain.DataTransferObjects;
+﻿using DataTransferObjects;
 using Domain.Models;
 using FluentValidation.Results;
 using System;

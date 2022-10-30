@@ -1,4 +1,4 @@
-﻿using Domain.DataTransferObjects;
+﻿using DataTransferObjects;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

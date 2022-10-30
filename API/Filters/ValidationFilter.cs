@@ -1,5 +1,5 @@
 ﻿using API.Controllers;
-using Domain.DataTransferObjects;
+using DataTransferObjects;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;

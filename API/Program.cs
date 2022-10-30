@@ -3,7 +3,6 @@ using API.Middleware;
 using API.ServiceConfiguration;
 using DataAccessLayer;
 using Database.AppContext;
-using Domain.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -27,7 +26,7 @@ var connectionString = builder.Configuration.GetConnectionString("SmsService");
 builder.Services.ConfigureDatabase(connectionString);
 
 
-builder.Services.AddAutoMapper(typeof(SmsProfile));
+builder.Services.AddAutoMapper(typeof(DataTransferObjects.SmsProfile));
 
 //Add repositories
 builder.Services.ConfigureDataAccessLayer();
