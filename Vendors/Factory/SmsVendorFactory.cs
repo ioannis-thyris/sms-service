@@ -11,16 +11,13 @@ namespace SmsVendors.Factory
     {
         private readonly Dictionary<Country, ISmsVendor> _vendorList;
         private readonly IServiceProvider _serviceProvider;
-        private readonly ISmsVendorRest smsVendorRest;
 
         public SmsVendorFactory(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-
-            smsVendorRest = GetVendor<ISmsVendorRest>();
-
             _vendorList = new Dictionary<Country, ISmsVendor>();
 
+            AddVendor<ISmsVendorGR>(Country.Rest);
             AddVendor<ISmsVendorGR>(Country.GR);
             AddVendor<ISmsVendorCY>(Country.CY);
         }
@@ -28,7 +25,7 @@ namespace SmsVendors.Factory
 
         public ISmsVendor Create(Country country)
         {
-            return _vendorList.ContainsKey(country) ? _vendorList[country] : smsVendorRest;
+            return _vendorList.ContainsKey(country) ? _vendorList[country] : _vendorList[Country.Rest];
         }
 
 

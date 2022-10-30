@@ -1,4 +1,4 @@
-﻿using Domain.DataTransferObjects;
+﻿using DataTransferObjects;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -19,8 +19,8 @@ namespace SmsVendors.Vendors.GR
                                 .WithMessage("Cannot send an empty message.");
 
             RuleFor(m => m.Number).NotEmpty()
-                                  .Matches(@"^\+[1-9]\d{1,14}$")
                                   .MinimumLength(7)
+                                  .Matches(@"^\+[3][0]\d{1,10}$")
                 .WithMessage("Wrong Telephone number format, please use '+(country code)(Subscriber number)'. Check: https://en.wikipedia.org/wiki/E.164");
 
             RuleFor(m => m.Text).Must(m => IsInGreek(m))

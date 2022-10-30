@@ -1,4 +1,4 @@
-﻿using Domain.DataTransferObjects;
+﻿using DataTransferObjects;
 using Domain.Models;
 using FluentValidation;
 using System;
@@ -17,7 +17,7 @@ namespace SmsVendors.Vendors.CY
                                 .WithMessage("Cannot send an empty message.");
 
             RuleFor(m => m.Number).NotEmpty()
-                                  .Matches(@"^\+[1-9]\d{1,14}$")
+                                  .Matches(@"^\+[3][5][7]\d{1,8}$")
                                   .MinimumLength(7)
                 .WithMessage("Wrong Telephone number format, please use '+(country code)(Subscriber number)'. Check: https://en.wikipedia.org/wiki/E.164");
         }

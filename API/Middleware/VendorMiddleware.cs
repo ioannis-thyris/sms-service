@@ -1,4 +1,4 @@
-﻿using Domain.DataTransferObjects;
+﻿using DataTransferObjects;
 using SmsVendors;
 using SmsVendors.Contracts;
 using SmsVendors.Factory;
@@ -51,7 +51,7 @@ namespace API.Middleware
                     return countryNumbers[countryTelCode];
             }
 
-            return default(Country); // Avoid adding a value to the enum with zero value.
+            return Country.Rest; // Avoid adding a value to the enum with zero value.
         }
 
         private async Task<SmsDto> ReadRequestBody(Stream body)
