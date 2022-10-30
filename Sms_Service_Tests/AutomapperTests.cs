@@ -26,20 +26,5 @@ namespace Sms_Service_Tests
             configuration.AssertConfigurationIsValid();
         }
 
-
-        [Fact]
-        public SmsDto Map_SmsToDto_ReturnsTrue()
-        {
-            // Arrage
-            Sms sms = new Sms() { Number = "+30224107775", Text = "Pizza", DateSent = DateTime.Now };
-
-            // Act
-            return _mapper.Map<Sms, SmsDto>(sms);
-
-            // Assert
-
-            //Assert.Equal(dto, new SmsDto { Number = "+30224107775", Text = "Pizza" });
-        }
-
     }
 }

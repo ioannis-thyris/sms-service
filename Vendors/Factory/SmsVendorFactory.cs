@@ -17,7 +17,7 @@ namespace SmsVendors.Factory
             _serviceProvider = serviceProvider;
             _vendorList = new Dictionary<Country, ISmsVendor>();
 
-            AddVendor<ISmsVendorGR>(Country.Rest);
+            AddVendor<ISmsVendorRest>(Country.Rest);
             AddVendor<ISmsVendorGR>(Country.GR);
             AddVendor<ISmsVendorCY>(Country.CY);
         }
