@@ -49,10 +49,10 @@ namespace Sms_Service_Tests.ValidationTests
 
 
         [Fact]
-        public void ShouldHaveError_When_NumberLessThanSevenDigits()
+        public void ShouldHaveError_When_NumberLessThanTwelveDigits()
         {
             // Arrange
-            var smsDto = new SmsDto() { Text = "Τι κάνουμε;", Number = "+3054" };
+            var smsDto = new SmsDto() { Text = "Τι κάνουμε;", Number = "+30694623707" };
 
             // Act
             var result = validatorGR.TestValidate(smsDto);
@@ -62,10 +62,10 @@ namespace Sms_Service_Tests.ValidationTests
         }
 
         [Fact]
-        public void ShouldHaveError_When_NumberMoreThanThirteenDigits()
+        public void ShouldHaveError_When_NumberMoreThanTwelveDigits()
         {
             // Arrange
-            var smsDto = new SmsDto() { Text = "Τι κάνουμε;", Number = "+3069462398981" };
+            var smsDto = new SmsDto() { Text = "Τι κάνουμε;", Number = "+3069462398321" };
 
             // Act
             var result = validatorGR.TestValidate(smsDto);

@@ -22,10 +22,10 @@ namespace Sms_Service_Tests.ValidationTests
         }
 
         [Fact]
-        public void ShouldHaveError_When_NumberLessThanSevenDigits()
+        public void ShouldHaveError_When_NumberLessThanElevenDigits()
         {
             // Arrange
-            var smsDto = new SmsDto() { Text = "Hello there!", Number = "+3054" };
+            var smsDto = new SmsDto() { Text = "Hello there!", Number = "+3579926587" };
 
             // Act
             var result = validatorCY.TestValidate(smsDto);
@@ -35,7 +35,7 @@ namespace Sms_Service_Tests.ValidationTests
         }
 
         [Fact]
-        public void ShouldHaveError_When_NumberMoreThanTwelveDigits()
+        public void ShouldHaveError_When_NumberMoreThanElevenDigits()
         {
             // Arrange
             var smsDto = new SmsDto() { Text = "Hello there!", Number = "+357997660201" };
