@@ -2,14 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+
 namespace Database.Configurations
 {
     public class SmsConfiguration : IEntityTypeConfiguration<Sms>
     {
         public void Configure(EntityTypeBuilder<Sms> builder)
         {
-            builder.ToTable("Sms",
-                t => t.HasCheckConstraint("Number_E.164", "[Number] like '+%[0-9]'"));
+            builder.ToTable("Sms");
+
+            builder.HasCheckConstraint("Number_E.164", "[Number] like '+%[0-9]'");
 
             builder.HasKey(m => m.Id)
                    .HasName("Id");
