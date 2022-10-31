@@ -9,17 +9,12 @@ using System.Threading.Tasks;
 
 namespace SmsVendors.Vendors.CY
 {
-    public class SmsValidatorCY : AbstractValidator<SmsDto>, ISmsValidatorCY
+    public class SmsValidatorCY : SmsValidatorBase, ISmsValidatorCY
     {
         public SmsValidatorCY() : base()
         {
-            RuleFor(m => m.Text).NotEmpty()
-                                .WithMessage("Cannot send an empty message.");
-
-            RuleFor(m => m.Number).NotEmpty()
-                                  .Matches(@"^\+[3][5][7]\d{1,8}$")
-                                  .MinimumLength(7)
-                .WithMessage("Wrong Telephone number format, please use '+(country code)(Subscriber number)'. Check: https://en.wikipedia.org/wiki/E.164");
+            RuleFor(m => m.Number).Matches(@"^\+[3][5][7]\d{8,8}$")
+                .WithMessage("The telephone number provided is not a valid CY number. Check: 'https://en.wikipedia.org/wiki/Telephone_numbers_in_Cyprus'");
         }
 
     }
