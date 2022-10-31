@@ -36,14 +36,17 @@ namespace API.Middleware
             await _next(context);
         }
 
-
-
         private async Task<Country> GetCountry(HttpContext context)
         {
             var dto = await ReadRequestBody(context.Request.Body);
+
+            if (dto.Number.Length < 2)
+                throw new Exception("Not a valid international code entered.");
+
+
             string countryTelCode;
 
-            for (int i = 2; i <= 4; i++)
+            for (int i = 2; i <= dto.Number.Length; i++)
             {
                 countryTelCode = dto.Number.Substring(0, i);
 
@@ -51,7 +54,7 @@ namespace API.Middleware
                     return countryNumbers[countryTelCode];
             }
 
-            return Country.Rest; // Avoid adding a value to the enum with zero value.
+            return Country.Rest;
         }
 
         private async Task<SmsDto> ReadRequestBody(Stream body)
