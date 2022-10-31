@@ -11,11 +11,12 @@ using SmsVendors.Vendors.Rest;
 
 namespace Sms_Service_Tests
 {
-    public class FactoryTests : IClassFixture<DependencySetupFixture>
+    // This class should be configured with the TestingWebAppFactory as well.
+    public class VendorFactoryTests : IClassFixture<DependencySetupFixture>
     {
         private readonly ISmsVendorFactory _factory;
 
-        public FactoryTests(DependencySetupFixture fixture)
+        public VendorFactoryTests(DependencySetupFixture fixture)
         {
             _factory = new SmsVendorFactory(fixture.ServiceProvider);
         }
@@ -85,7 +86,7 @@ namespace Sms_Service_Tests
             serviceCollection.AddScoped<ISmsValidatorRest, SmsValidatorRest>();
 
             serviceCollection.AddDbContext<Context>(options =>
-                                            options.UseSqlServer("")
+                                            options.UseInMemoryDatabase("Test")
                                         );
 
             serviceCollection.AddScoped<ISmsRepository, SmsRepository>();
