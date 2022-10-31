@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataTransferObjects;
-using FluentValidation;
+﻿using DataTransferObjects;
 using FluentValidation.TestHelper;
-using SmsVendors.Vendors.CY;
 using SmsVendors.Vendors.GR;
-using SmsVendors.Vendors.Rest;
 
 namespace Sms_Service_Tests.ValidationTests
 {

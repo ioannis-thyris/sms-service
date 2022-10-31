@@ -1,10 +1,6 @@
-using API.Filters;
 using API.Middleware;
 using API.ServiceConfiguration;
-using DataAccessLayer;
-using Database.AppContext;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,3 +59,5 @@ app.UseMiddleware<VendorMiddleware>();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

@@ -1,15 +1,12 @@
 ﻿using API.Filters;
 using DataAccessLayer;
 using Database.AppContext;
-using FluentValidation;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmsVendors.Contracts;
 using SmsVendors.Factory;
 using SmsVendors.Vendors.CY;
 using SmsVendors.Vendors.GR;
 using SmsVendors.Vendors.Rest;
-using System;
 
 namespace API.ServiceConfiguration
 {

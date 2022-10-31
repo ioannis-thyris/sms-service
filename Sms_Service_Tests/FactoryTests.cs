@@ -1,20 +1,13 @@
 ﻿using DataAccessLayer;
 using Database.AppContext;
-using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using SmsVendors;
 using SmsVendors.Contracts;
 using SmsVendors.Factory;
 using SmsVendors.Vendors.CY;
 using SmsVendors.Vendors.GR;
 using SmsVendors.Vendors.Rest;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sms_Service_Tests
 {

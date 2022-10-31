@@ -1,11 +1,7 @@
 ﻿using API.Controllers;
 using DataTransferObjects;
-using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using SmsVendors.Contracts;
-using System.Numerics;
 
 namespace API.Filters
 {

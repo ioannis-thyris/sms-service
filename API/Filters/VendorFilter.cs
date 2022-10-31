@@ -1,7 +1,6 @@
 ﻿using API.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using SmsVendors.Contracts;
-using System.Numerics;
 
 namespace API.Filters
 {
@@ -15,7 +14,7 @@ namespace API.Filters
                 throw new Exception("Error with assigning a SMS vendor.");
 
             var controller = (SmsController)context.Controller;
-            
+
             controller.Vendor = (ISmsVendor)vendor;
         }
 

@@ -1,14 +1,9 @@
 ﻿using API.Filters;
 using AutoMapper;
-using Database.AppContext;
 using DataTransferObjects;
 using Domain.Models;
-using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using SmsVendors.Contracts;
-using System;
-using System.Numerics;
 
 namespace API.Controllers
 {

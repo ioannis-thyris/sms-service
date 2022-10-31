@@ -1,8 +1,6 @@
 ﻿using DataTransferObjects;
 using SmsVendors;
-using SmsVendors.Contracts;
 using SmsVendors.Factory;
-using System.Text;
 using System.Text.Json;
 
 namespace API.Middleware

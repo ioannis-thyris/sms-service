@@ -1,14 +1,5 @@
 ﻿using DataAccessLayer;
-using DataTransferObjects;
-using Domain.Models;
-using FluentValidation;
-using FluentValidation.Results;
 using SmsVendors.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmsVendors.Vendors.CY
 {
@@ -16,7 +7,7 @@ namespace SmsVendors.Vendors.CY
     {
         protected override int MaxChars { get; set; } = 160;
 
-        public SmsVendorCY(ISmsRepository repo, ISmsValidatorCY validator) 
+        public SmsVendorCY(ISmsRepository repo, ISmsValidatorCY validator)
             : base(repo, validator)
         {
         }
