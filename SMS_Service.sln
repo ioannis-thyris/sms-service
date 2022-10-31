@@ -15,13 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsVendors", "Vendors\SmsVe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{E302FB62-36B9-4295-9BD4-7EE429F7CFC1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sms_Service_Tests", "Sms_Service_Tests\Sms_Service_Tests.csproj", "{F76B3A96-1BCA-4D9E-BC50-744EF2086059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "Sms_Service_Tests\UnitTests.csproj", "{F76B3A96-1BCA-4D9E-BC50-744EF2086059}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6FACCA80-4A25-40B5-9A1F-DE47E0EB48FE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E0442FB2-AE29-4748-BE5B-C4E405FD5413}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E0442FB2-AE29-4748-BE5B-C4E405FD5413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{689997EF-148B-4BEC-9220-E2503144F85E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{689997EF-148B-4BEC-9220-E2503144F85E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,16 +1,11 @@
 ﻿using DataAccessLayer;
-using DataTransferObjects;
 using Domain.Models;
-using FluentValidation;
 using Moq;
-using SmsVendors.Contracts;
 using SmsVendors.Vendors;
 using SmsVendors.Vendors.CY;
 using SmsVendors.Vendors.GR;
 using SmsVendors.Vendors.Rest;
-using System;
 using System.Text;
-using Xunit.Sdk;
 
 namespace Sms_Service_Tests
 {
