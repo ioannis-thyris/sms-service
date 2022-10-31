@@ -12,7 +12,7 @@ namespace SmsVendors.Vendors
         private readonly ISmsRepository _repo;
         private readonly IValidator<SmsDto> _validator;
 
-        protected virtual int MaxChars { get; set; } = 480;
+        public virtual int MaxChars { get; set; } = 480;
 
         public SmsVendorBase(ISmsRepository repo, IValidator<SmsDto> validator)
         {
